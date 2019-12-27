@@ -1,0 +1,30 @@
+@startuml
+title 抽象工厂模式类图
+
+interface ProductX
+interface ProductY
+interface Factory {
+    public ProductX createProductX()
+    public ProductY createProductY()
+}
+class AProductX
+class BProductX
+class AProductY
+class BProductY
+class AFactory
+class BFactory
+
+Factory <|.. AFactory
+Factory <|.. BFactory
+ProductX <|.. AProductX
+ProductX <|.. BProductX
+ProductY <|.. AProductY
+ProductY <|.. BProductY
+
+Factory -> ProductX: <<create>>
+Factory -> ProductY: <<create>>
+AFactory --> AProductX: <<create>>
+AFactory --> AProductY: <<create>>
+BFactory --> BProductX: <<create>>
+BFactory --> BProductY: <<create>>
+@enduml

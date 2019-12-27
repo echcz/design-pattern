@@ -1,0 +1,15 @@
+@startuml
+title 简单工厂模式时序图
+
+actor Client
+participant Factory
+entity AProduct
+
+activate Client
+Client -> Factory: 1.1 createProduct('A')
+activate Factory
+Factory -> AProduct: 1.2 <<create>>
+activate AProduct
+deactivate Factory
+Client -> AProduct: 2 <<use>>
+@enduml

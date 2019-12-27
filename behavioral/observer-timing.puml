@@ -1,0 +1,21 @@
+@startuml
+title 观察者模式时序图
+
+actor Client
+participant ConSubject
+participant ConObserver
+
+Client -> ConSubject: 1.1 <<create>>
+activate Client
+Client -> ConObserver: 1.2 <<create with conSubject>>
+Client -> ConSubject: 1.3 addObserver(conObserver)
+activate ConSubject
+deactivate ConSubject
+deactivate Client
+Client -> ConSubject: 2.1 setState()
+activate Client
+activate ConSubject
+ConSubject -> ConSubject: 2.2 notify()
+ConSubject -> ConObserver: 2.3 update(conSubject)
+activate ConObserver
+@enduml

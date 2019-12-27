@@ -1,0 +1,17 @@
+@startuml
+title 装饰器模式类图
+
+interface Component {
+    + operation()
+}
+class ConComponent
+interface Decorator {
+    + addedOperation()
+}
+class ConDecorator
+
+Component <|.. ConComponent
+Component <|.. Decorator
+Decorator <|.. ConDecorator
+ConComponent -o ConDecorator
+@enduml

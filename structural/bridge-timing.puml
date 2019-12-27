@@ -1,0 +1,15 @@
+@startuml
+title 桥接模式时序图
+
+actor Client
+participant RefinedAbstraction
+participant ConImplementor
+
+activate Client
+Client -> ConImplementor: <<create>>
+activate ConImplementor
+Client -> RefinedAbstraction: <<create with ConImplementor>>
+activate RefinedAbstraction
+Client -> RefinedAbstraction: operation()
+RefinedAbstraction -> ConImplementor: operationImpl()
+@enduml

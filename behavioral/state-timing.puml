@@ -1,0 +1,20 @@
+@startuml
+title 状态模式时序图
+
+actor Client
+participant Context
+participant ConStateA
+participant ConStateB
+
+Client -> Context: 1.1 <<create>>
+activate Client
+Context -> ConStateA: 1.2 <<create>>
+activate Context
+deactivate Context
+Client -> Context: 2.1 request()
+activate Context
+Context -> ConStateA: 2.2 handle(context)
+activate ConStateA
+ConStateA -> ConStateB: 2.3 <<create>>
+ConStateA -> Context: 2.4 setState(conStateB)
+@enduml

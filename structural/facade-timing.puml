@@ -1,0 +1,18 @@
+@startuml
+title 外观模式时序图
+
+actor Client
+participant Facade
+participant SystemA
+participant SystemB
+
+activate Client
+Client -> Facade: wrapOpration()
+activate Facade
+Facade -> SystemA: oprationA()
+activate SystemA
+deactivate SystemA
+Facade -> SystemB: oprationB()
+activate SystemB
+deactivate SystemB
+@enduml

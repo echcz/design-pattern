@@ -1,0 +1,17 @@
+@startuml
+title 适配器模式类图
+
+interface Target {
+    + targetMethod()
+}
+class Adaptee {
+    + srcMethod()
+}
+class Adapter
+Target <|.. Adapter
+Adaptee <- Adapter
+
+note "targetMethod() { \n    adaptee.srcMethod() \n}" as N1
+Adapter .right. N1
+
+@enduml

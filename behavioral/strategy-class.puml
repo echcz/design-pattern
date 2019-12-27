@@ -1,0 +1,21 @@
+@startuml
+title 策略模式类图
+
+class Context {
+    - Strategy strategy
+    + setStrategy(Strategy)
+    + execute()
+}
+interface Strategy {
+    + execute()
+}
+class ConStrategyA
+class ConStrategyB
+
+Context o- Strategy
+Strategy <|.. ConStrategyA
+Strategy <|.. ConStrategyB
+
+note "execute() {\nstrategy.execute()\n}" as N1
+N1 .up. Context
+@enduml

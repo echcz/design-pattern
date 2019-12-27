@@ -1,0 +1,15 @@
+@startuml
+title 工厂方法模式时序图
+
+actor Client
+participant AFactory
+entity AProduct
+
+activate Client
+Client -> AFactory: 1.1 createInstance()
+activate AFactory
+AFactory -> AProduct: 1.2 <<create>>
+activate AProduct
+deactivate AFactory
+Client -> AProduct: 2 <<use>>
+@enduml

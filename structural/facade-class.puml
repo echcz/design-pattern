@@ -1,0 +1,16 @@
+@startuml
+title 外观模式类图
+
+class Facade {
+    + wrapOpration()
+}
+class SystemA {
+    + operationA()
+}
+class SystemB {
+    + operationB()
+}
+
+Facade --> SystemA
+Facade --> SystemB
+@enduml

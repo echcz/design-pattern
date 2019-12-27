@@ -1,0 +1,25 @@
+@startuml
+title 建造者模式时序图
+
+actor Client
+participant Director
+participant ConBuilder
+entity Product
+
+activate Client
+Client -> ConBuilder: 1.1 <<create>>
+activate ConBuilder
+Client -> Director: 1.2 setBuilder(builder)
+activate Director
+Client -> Director: 2.1 build()
+Director -> ConBuilder: 2.2 buildPartA()
+Director -> ConBuilder: 2.3 buildPartB()
+Director -> ConBuilder: 2.4 buildPartC()
+Director -> ConBuilder: 2.5 build
+ConBuilder -> Product: 2.6 <<create>>
+deactivate Director
+deactivate ConBuilder
+activate Product
+Client -> Product: 3 <<use>>
+
+@enduml

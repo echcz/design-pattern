@@ -1,0 +1,16 @@
+@startuml
+title 简单工厂模式类图
+
+interface Product
+class AProduct
+class BProduct
+object Factory {
+    Product createProduct(string)
+}
+
+Product <|.. AProduct
+Product <|.. BProduct
+Factory -> Product: create
+Factory ..> AProduct
+Factory ..> BProduct
+@enduml

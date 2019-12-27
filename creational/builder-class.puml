@@ -1,0 +1,21 @@
+@startuml
+title 建造者模式类图
+
+interface Builder {
+    + void buildPartA()
+    + void buildPartB()
+    + void buildPartC()
+    + Product getResult()
+}
+class ConBuilder
+class Director {
+    - Builder builder
+    + Product build()
+    + void setBuilder(Builder)
+}
+class Product
+
+Builder <|.. ConBuilder
+Director o- Builder
+ConBuilder -> Product: <<create>>
+@enduml

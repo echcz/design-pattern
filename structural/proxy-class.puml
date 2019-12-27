@@ -1,0 +1,19 @@
+@startuml
+title 代理模式类图
+
+interface Subject {
+    + request()
+}
+class RealSubject
+class Proxy {
+    - preRequest()
+    - afterRequest()
+}
+
+Subject <|.. RealSubject
+Subject <|.. Proxy
+RealSubject <- Proxy
+
+note "request() {\npreRequest()\nrealSubject.request()\nafterRequest()\n}" as N1
+N1 .. Proxy
+@enduml

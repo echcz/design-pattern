@@ -1,0 +1,24 @@
+@startuml
+title 中介者模式类图
+
+interface Mediator {
+    + registe(int, Colleague)
+    + operation(int)
+}
+class ConMediator
+interface Colleague {
+    + setMediator(Mediator)
+    + sendMsg(int)
+    + receiveMsg()
+}
+class ConColleagueA
+class ConColleagueB
+
+Mediator <|.. ConMediator
+Colleague <|.. ConColleagueA
+Colleague <|.. ConColleagueB
+
+Mediator <- Colleague
+ConMediator -> ConColleagueB
+ConMediator -> ConColleagueA
+@enduml

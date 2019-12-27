@@ -1,0 +1,31 @@
+@startuml
+title 策略模式时序图
+actor Client
+participant Context
+participant ConStrategyA
+participant ConStrategyB
+
+Client -> Context: 1 <<create>>
+activate Client
+deactivate Client
+Client -> ConStrategyA: 2.1 <<create>>
+activate Client
+Client -> Context: 2.2 setStrategy(conStrategyA)
+activate Context
+Client -> Context: 2.3 execute()
+Context -> ConStrategyA: 2.4 execute()
+activate ConStrategyA
+deactivate ConStrategyA
+deactivate Context
+deactivate Client
+Client -> ConStrategyB: 3.1 <<create>>
+activate Client
+Client -> Context: 3.2 setStrategy(conStrategyB)
+activate Context
+Client -> Context: 3.3 execute()
+Context -> ConStrategyB: 3.4 execute()
+activate ConStrategyB
+deactivate ConStrategyB
+deactivate Context
+deactivate Client
+@enduml

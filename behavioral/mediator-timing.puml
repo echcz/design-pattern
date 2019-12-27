@@ -1,0 +1,35 @@
+@startuml
+title 中介者模式时序图
+
+actor Client
+participant ConColleagueA
+participant ConMediator
+participant ConColleagueB
+
+Client -> ConColleagueA: 1.1 <<create>>
+activate Client
+Client -> ConColleagueB: 1.2 <<create>>
+Client -> ConMediator: 1.3 <<create>>
+deactivate Client
+Client -> ConMediator: 2.1.1 registe(1, A)
+activate Client
+activate ConMediator
+ConMediator -> ConColleagueA: 2.1.2 setMediator()
+activate ConColleagueA
+deactivate ConColleagueA
+deactivate ConMediator
+Client -> ConMediator: 2.2.1 registe(2, B)
+activate ConMediator
+ConMediator -> ConColleagueB: 2.2.2 setMediator()
+activate ConColleagueB
+deactivate ConColleagueB
+deactivate ConMediator
+deactivate Client
+Client -> ConColleagueA: 3.1 sendMsg(2)
+activate Client
+activate ConColleagueA
+ConColleagueA -> ConMediator: 3.2 operation(2)
+activate ConMediator
+ConMediator -> ConColleagueB: 3.3 receiveMsg()
+activate ConColleagueB
+@enduml

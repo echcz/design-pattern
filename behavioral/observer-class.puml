@@ -1,0 +1,25 @@
+@startuml
+title 观察者模式类图
+
+abstract class Subject {
+    - List<Observer> obs
+    + addObserver(Observer)
+    + rmObserver(int)
+}
+class ConSubject {
+    - int state
+    + getState()
+    + setState(int)
+}
+interface Observer {
+    + update(Subject)
+}
+class ConObserver {
+    - Subject subject
+}
+
+Subject <|-- ConSubject
+Observer <|.. ConObserver
+Subject -> Observer
+ConSubject <- ConObserver
+@enduml
