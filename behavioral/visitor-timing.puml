@@ -1,0 +1,30 @@
+@startuml
+title 访客模式时序图
+
+actor Client
+participant Element
+participant XVisitor
+participant YVisitor
+
+Client -> Element: 1.1 <<create>>
+activate Client
+deactivate Client
+Client -> XVisitor: 2.1 <<create>>
+activate Client
+Client -> Element: 2.2 accept(xVisitor)
+activate Element
+Element -> XVisitor: 2.3 visit(element)
+activate XVisitor
+deactivate XVisitor
+deactivate Element
+deactivate Client
+Client -> YVisitor: 3.1 <<create>>
+activate Client
+Client -> Element: 3.2 accept(yVisitor)
+activate Element
+Element -> YVisitor: 3.3 visit(element)
+activate YVisitor
+deactivate YVisitor
+deactivate Element
+deactivate Client
+@enduml

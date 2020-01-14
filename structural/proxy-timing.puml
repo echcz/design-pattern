@@ -11,5 +11,6 @@ activate Proxy
 Proxy -> Proxy: preRequest()
 Proxy -> RealSubject: request()
 activate RealSubject
+deactivate RealSubject
 Proxy -> Proxy: afterRequest()
 @enduml

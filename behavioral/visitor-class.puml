@@ -1,0 +1,23 @@
+@startuml
+title 访客模式类图
+
+interface Element {
+    + accept(Visitor)
+}
+class AElement
+class BElement
+interface Visitor {
+    + visit(AElement)
+    + visit(BElement)
+}
+class XVisitor
+class YVisitor
+
+Element <|.. AElement
+Element <|.. BElement
+Visitor <|.. XVisitor
+Visitor <|.. YVisitor
+Element .> Visitor
+Visitor ..> AElement
+Visitor ..> BElement
+@enduml

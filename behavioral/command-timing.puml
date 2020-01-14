@@ -8,13 +8,15 @@ participant Receiver
 
 activate Client
 Client -> Receiver: 1.1 <<create>>
-activate Receiver
 Client -> ConComand: 1.2 <<create with Receiver>>
-activate ConComand
 Client -> Invoker: 1.3 <<create>>
-activate Invoker
 Client -> Invoker: 1.4 setCommand(conComand)
+activate Invoker
+deactivate Invoker
 Client -> Invoker: 2.1 call()
+activate Invoker
 Invoker -> ConComand: 2.2 execute()
+activate ConComand
 ConComand -> Receiver: 2.3 action()
+activate Receiver
 @enduml

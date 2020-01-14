@@ -7,9 +7,9 @@ participant ConImplementor
 
 activate Client
 Client -> ConImplementor: <<create>>
-activate ConImplementor
 Client -> RefinedAbstraction: <<create with ConImplementor>>
-activate RefinedAbstraction
 Client -> RefinedAbstraction: operation()
+activate RefinedAbstraction
 RefinedAbstraction -> ConImplementor: operationImpl()
+activate ConImplementor
 @enduml

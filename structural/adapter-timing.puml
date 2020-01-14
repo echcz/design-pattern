@@ -7,9 +7,9 @@ participant Adaptee
 
 activate Client
 Client -> Adaptee: 1.1 <<create>>
-activate Adaptee
 Client -> Adapter: 1.2 <<create with Adaptee>>
-activate Adapter
 Client -> Adapter: 2.1 targetMethod()
+activate Adapter
 Adapter -> Adaptee: 2.2 srcMethod()
+activate Adaptee
 @enduml

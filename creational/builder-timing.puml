@@ -8,11 +8,11 @@ entity Product
 
 activate Client
 Client -> ConBuilder: 1.1 <<create>>
-activate ConBuilder
 Client -> Director: 1.2 setBuilder(builder)
 activate Director
 Client -> Director: 2.1 build()
 Director -> ConBuilder: 2.2 buildPartA()
+activate ConBuilder
 Director -> ConBuilder: 2.3 buildPartB()
 Director -> ConBuilder: 2.4 buildPartC()
 Director -> ConBuilder: 2.5 build

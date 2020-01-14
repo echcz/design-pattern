@@ -7,11 +7,14 @@ participant Component
 
 activate Client
 Client -> Component: 1.1 <<create>>
-activate Component
 Client -> Decorator: 1.2 <<create with Component>>
-activate Decorator
 Client -> Decorator: 2.1 operation()
+activate Decorator
 Decorator -> Component: 2.2 operation()
+activate Component
+deactivate Component
+deactivate Decorator
 Client -> Decorator: 3.1 addedOperation()
+activate Decorator
 Decorator -> Decorator: 3.2 <<operate with self>>
 @enduml
